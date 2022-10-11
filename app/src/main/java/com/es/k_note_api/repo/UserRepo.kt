@@ -29,12 +29,7 @@ class UserRepo @Inject constructor(private val userApi: UserApi) {
 
         } else {
             _useResponseLiveData.postValue(NetworkResult.Error("Something Went Wrong"))
-
         }
-
-
-
-
 
         Log.i(TAG, "registerUser:${response.toString()} ")
 
