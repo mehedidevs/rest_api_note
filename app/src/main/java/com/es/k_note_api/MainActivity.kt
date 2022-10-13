@@ -27,10 +27,11 @@ class MainActivity : AppCompatActivity() {
         authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
 
 
-        val btn = findViewById<Button>(R.id.registerBtn)
+        val reg_btn = findViewById<Button>(R.id.registerBtn)
+        val login_btn = findViewById<Button>(R.id.loginBtn)
         val prgress = findViewById<ProgressBar>(R.id.progressBar)
 
-        btn.setOnClickListener {
+        reg_btn.setOnClickListener {
             val userRequest = UserRequest("masum2@gmail.com", "12345678", "Masum")
 
             authViewModel.registerUser(userRequest)
@@ -38,6 +39,18 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+
+        login_btn.setOnClickListener {
+            val userRequest = UserRequest("masum3@gmail.com", "12345678", "Masum")
+
+            authViewModel.registerUser(userRequest)
+            prgress.visibility = View.VISIBLE
+
+
+        }
+
+
+
 
 
         authViewModel.userResponseLiveData.observe(this) { state ->

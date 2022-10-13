@@ -8,6 +8,7 @@ import com.es.k_note_api.models.UserRequest
 import com.es.k_note_api.models.UserResponse
 import com.es.k_note_api.utils.Constant.TAG
 import com.es.k_note_api.utils.NetworkResult
+import org.json.JSONObject
 import javax.inject.Inject
 
 class UserRepo @Inject constructor(private val userApi: UserApi) {
@@ -25,7 +26,10 @@ class UserRepo @Inject constructor(private val userApi: UserApi) {
             _useResponseLiveData.postValue(NetworkResult.Success(response.body()!!))
 
         } else if (response.errorBody() != null) {
-            _useResponseLiveData.postValue(NetworkResult.Error("Something Went Wrong"))
+            val errorObj = JSONObject(response.errorBody()!!.charStream().readText())
+
+            _useResponseLiveData.postValue(NetworkResult.Error(errorObj.getString("message")))
+
 
         } else {
             _useResponseLiveData.postValue(NetworkResult.Error("Something Went Wrong"))
