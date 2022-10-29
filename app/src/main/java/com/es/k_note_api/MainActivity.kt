@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         val prgress = findViewById<ProgressBar>(R.id.progressBar)
 
         reg_btn.setOnClickListener {
-            val userRequest = UserRequest("masum2@gmail.com", "12345678", "Masum")
+            val userRequest = UserRequest("masum12@gmail.com", "12345678", "Masum")
 
             authViewModel.registerUser(userRequest)
             prgress.visibility = View.VISIBLE
@@ -41,10 +41,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         login_btn.setOnClickListener {
-            val userRequest = UserRequest("masum3@gmail.com", "12345678", "Masum")
+         //   val userRequest = UserRequest("masum@gmail.com", "12345678", "Masum")
 
-            authViewModel.registerUser(userRequest)
-            prgress.visibility = View.VISIBLE
+           // authViewModel.registerUser(userRequest)
+           // prgress.visibility = View.VISIBLE
 
 
         }
@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
                 is NetworkResult.Success -> {
                     prgress.visibility = View.GONE
                     //token
-                    Log.i(TAG, "Data Loaded")
+                    Log.i(TAG, "${state.data}")
 
                 }
             }
