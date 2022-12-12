@@ -27,7 +27,7 @@ class UserRepo @Inject constructor(private val userApi: UserApi) {
 
         } else if (response.errorBody() != null) {
             val errorObj = JSONObject(response.errorBody()!!.charStream().readText())
-
+//
             _useResponseLiveData.postValue(NetworkResult.Error(errorObj.getString("message")))
 
 

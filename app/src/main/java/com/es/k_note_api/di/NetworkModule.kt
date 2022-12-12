@@ -32,9 +32,9 @@ class NetworkModule {
 
         return OkHttpClient.Builder()
             .addInterceptor(authInterceptor)
-            .connectTimeout(1000, TimeUnit.SECONDS)
-            .readTimeout(20000, TimeUnit.SECONDS)
-            .writeTimeout(10000, TimeUnit.SECONDS)
+            .connectTimeout(60, TimeUnit.SECONDS)
+            .writeTimeout(120, TimeUnit.SECONDS)
+            .readTimeout(60, TimeUnit.SECONDS)
             .build()
 
     }

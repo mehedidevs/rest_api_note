@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         val prgress = findViewById<ProgressBar>(R.id.progressBar)
 
         reg_btn.setOnClickListener {
-            val userRequest = UserRequest("masum37@gmail.com", "12345678", "Masum")
+            val userRequest = UserRequest("masum38@gmail.com", "12345678", "Masum")
 
             authViewModel.registerUser(userRequest)
             prgress.visibility = View.VISIBLE
